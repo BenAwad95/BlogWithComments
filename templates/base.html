@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog {% block title %}
+    {% endblock title %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block style %}
+    {% endblock style %}
+</head>
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1 id="logo"><a href="#">TodayBlog</a></h1>
+            <nav id="main-nav">
+                <ul>
+                    <li><a class='btn-nav' href="{% url 'pages:home' %}">Home</a></li>
+                    <li><a class='btn-nav' href="#">Blog</a></li>
+                    <li><a class='btn-nav' href="./admin">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            {% block content %}
+                <div id="greeting">
+                    <h2>welcome to today blog</h2>
+                    <p>today blog is one of the best blog in the tech field</p>
+                    <a href="#" class="btn btn-prt">Our Blog</a>
+                </div>
+            {% endblock content %}
+        </div>
+    </main>
+    <footer id="main-footer">
+        <p>All rights received &copy 2020 by TodayBlog</p>
+    </footer>
+</body>
+</html>
