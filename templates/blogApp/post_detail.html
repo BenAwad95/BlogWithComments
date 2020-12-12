@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+{{object.title|title}}
+{% endblock title %}
+
+{% block content %}
+    <div class="post-box">
+        <h2>{{object.title|title}}</h2>
+        <small class='post-date'>{{post.created_on|date:'M j Y'}}</small>
+        <br>
+        <small class='post-categories'>{{post.categories|join:"&nbsp;"}}</small>
+        <p>{{object.body}}</p>
+    </div>
+    <div class="comment-box">
+        <h3>Commets</h3>
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Name</label>
+            <input type="text" name="name" id="author_comment">
+            <label for="body">Comment Body</label>
+            <textarea name="body" id="comment-body" cols="30" rows="10"></textarea>
+            <input type="submit" value="Send">
+        </form>
+        {% for comment in object.comment_set.all %}
+            <h5>{{comment.author}}</h5>
+            <small class='comment-date'>{{comment.created_on|date:'M j Y'}}</small>
+            <p>{{comment.body}}</p>
+        {% endfor %}
+    </div>
+{% endblock content %}

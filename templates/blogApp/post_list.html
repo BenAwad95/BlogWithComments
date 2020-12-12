@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    Posts List
+{% endblock title %}
+
+{% block content %}
+    <h2 class="heading-2" >Posts</h2>
+    {% for post in object_list %}
+        <div class="post-box">
+            <h3><a href="{{post.get_absolute_url}}">{{post.title|title}}</a></h3>
+            <small class='post-date'>{{post.created_on|date:'M j Y'}}</small>
+            <br>
+            <small class='post-categories'>{{post.categories|join:"&nbsp;"}}</small>
+            <p>{{post.body|truncatechars:'100'}}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}

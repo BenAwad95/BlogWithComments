@@ -17,8 +17,8 @@
             <nav id="main-nav">
                 <ul>
                     <li><a class='btn-nav' href="{% url 'pages:home' %}">Home</a></li>
-                    <li><a class='btn-nav' href="#">Blog</a></li>
-                    <li><a class='btn-nav' href="./admin">Admin</a></li>
+                    <li><a class='btn-nav' href="{% url 'blogApp:post_list' %}">Blog</a></li>
+                    <li><a class='btn-nav' href="http://localhost:8000/admin/">Admin</a></li>
                 </ul>
             </nav>
         </div>
