@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'cascadia code';
+}
+
+.container{
+    max-width: 1100px;
+    margin: auto;
+}
+
+#main-header{
+    background-color: hsl(0, 0%, 70%);
+    padding: 1rem;
+}
+
+#main-header .container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#logo{
+    text-transform: uppercase;
+    padding-right: 2rem;
+    
+}
+
+#logo a {
+    text-decoration: none;
+    color:white;
+}
+
+#main-nav ul li {
+    display: inline-block;
+    padding: 0 0.25rem;
+}
+
+#main-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.3rem;
+    transition: color 0.3s ease-in-out;
+}
+#main-nav ul li a:hover{
+    color: white;
+}
+
+main{
+    min-height: 87vh;
+}
+
+
+#greeting{
+    height: 87vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#greeting h2 {
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+#greeting a {
+    text-decoration: none;
+    color: white;
+    background-color: #333;
+    border-radius:10px ;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+#greeting a:hover{
+    transform: scale(1.1);
+}
+
+#main-footer{
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* posts list */
+
+h2.heading-2{
+    padding: 1rem 0;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.post-box{
+    padding: 1rem 0;
+}
+
+.post-box h3 {
+    padding-bottom: 0.5rem;
+}
+
+.post-box h3 a{
+    text-decoration: none;
+    color: #777;
+    font-size: 1.5rem;
+}
+
+.post-box h3 a:hover{
+    color: #333;
+}
+
+.post-box small{
+    padding-left: 0.5rem;
+    color: #555;
+}
+
+.post-box p{
+    padding-top: 1rem;
+}
+
+/* post detail */
+
+h2 {
+    padding: 1rem 0;
+    font-size: 2rem;
+}
+
+.post-box-detail{
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+
+.post-box-detail small{
+    padding-left: 0.5rem;
+    color: #555;
+}
+
+.post-box-detail p{
+    padding-top: 1rem;
+}
+
+h3.comment-heading{
+    font-size: 1.8rem;
+    padding: 0.5rem;
+}
+
+form{
+    padding: 1rem;
+    background-color: #777;
+    color: #333;
+    width: 500px;
+    margin-bottom: 2rem;
+}
+
+form label{
+    color: white;
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    padding-bottom: 0.5rem;
+    display: block;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+}
+
+form input[type='submit']{
+    width: 40%;
+    display: block;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+h5 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    padding-bottom: 0.1rem;
+}
+
+.comment-date{
+    padding-left: 0.5rem;
+}
+
+.comment-body{
+    padding: 0.5rem 0;
+}
