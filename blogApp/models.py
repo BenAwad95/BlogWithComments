@@ -1,5 +1,7 @@
 from django.db import models
+from django.db.models import fields
 from django.urls import reverse
+from django.forms import ModelForm
 class Category(models.Model):
     name = models.CharField(verbose_name='gategory', max_length=20)
 
@@ -30,5 +32,8 @@ class Comment(models.Model):
     
     def get_absolute_url(self):
         return reverse("blogApp:post_detail", kwargs={"pk": self.pk})
-    
-    
+
+class CommentFormModel(ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['author', 'body', 'post']

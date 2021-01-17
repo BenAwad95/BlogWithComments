@@ -15,10 +15,11 @@
         <h3 class='comment-heading'>Commets</h3>
         <form method="post">
             {% csrf_token %}
-            <label for="name">Name</label>
+            {% comment %} <label for="name">Name</label>
             <input type="text" name="name" id="author_comment">
             <label for="body">Comment Body</label>
-            <textarea name="body" id="comment-body" cols="30" rows="10"></textarea>
+            <textarea name="body" id="comment-body" cols="30" rows="10"></textarea> {% endcomment %}
+            {{ form }}
             <input type="submit" value="Send">
         </form>
         {% for comment in object.comment_set.all %}

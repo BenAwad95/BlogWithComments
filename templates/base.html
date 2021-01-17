@@ -27,9 +27,9 @@
         <div class="container">
             {% block content %}
                 <div id="greeting">
-                    <h2>welcome to today blog</h2>
+                    <h2 id = 'landing-heading'>welcome to today blog</h2>
                     <p>today blog is one of the best blog in the tech field</p>
-                    <a href="#" class="btn btn-prt">Our Blog</a>
+                    <a href={% url 'blogApp:post_list' %} class="btn btn-prt">Our Blog</a>
                 </div>
             {% endblock content %}
         </div>
