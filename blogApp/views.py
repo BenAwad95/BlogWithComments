@@ -19,7 +19,7 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     form = CommentFormModel()
     if request.method == 'POST':
-        author = request.POST.get('name')
+        author = request.POST.get('author')
         body = request.POST.get('body')
         Comment.objects.create(author=author, body=body, post=post, created_on=datetime.now())
     context = {

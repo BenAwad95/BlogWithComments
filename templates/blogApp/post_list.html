@@ -4,14 +4,15 @@
 {% endblock title %}
 
 {% block content %}
-    <h2 class="heading-2" >Posts</h2>
+    <h2 class="heading-2" >Posts List</h2>
     {% for post in object_list %}
         <div class="post-box">
             <h3><a href="{{post.get_absolute_url}}">{{post.title|title}}</a></h3>
             <small class='post-date'>Date: {{post.created_on|date:'M j Y'}}</small>
             <br>
             <small class='post-categories'>Tags: {{post.categories.all|join:"&nbsp;"}}</small>
-            <p>{{post.body|truncatechars:'200'}}</p>
+            <p>{{post.body|truncatechars:'400'}}</p>
         </div>
+        <hr>
     {% endfor %}
 {% endblock content %}
