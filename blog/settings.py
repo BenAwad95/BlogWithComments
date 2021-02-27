@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blogApp.apps.BlogappConfig',
-    'pages.apps.PagesConfig'
+    'pages.apps.PagesConfig',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -71,6 +72,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blog.wsgi.application'
 
+# Users Accounts
+LOGIN_REDIRECT_URL = 'users:dashboard'
+LOGOUT_REDIRECT_URL = 'users:dashboard'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
