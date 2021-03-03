@@ -24,9 +24,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'wjopo-^u^-jzy288t%tc@pjm(tmzpyj-dym7chhf9#$mo63$*2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
+
+# ADMINS
+
+ADMINS = [('Abdullah', 'abdullah.alashafi@gmail.com')]
+
+# MANAGERS
+
+MANAGERS = [('Abdullah', 'abdullah.alashafi@gmail.com')]
 
 
 # Application definition
@@ -40,10 +48,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blogApp.apps.BlogappConfig',
     'pages.apps.PagesConfig',
-    'users'
+    'users',
+
 ]
 
 MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -81,10 +93,10 @@ EMAIL_HOST = "smtp.mailgun.org"
 EMAIL_PORT = 587
 
 #! it's work just with your email that registered with mailgun
-EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
-# EMAIL_HOST_USER = "postmaster@sandbox91ff9043bba645d3a94b33e4ecf941b0.mailgun.org"
-# EMAIL_HOST_PASSWORD = "be446d60a9c69d1a9632bf9c44ed1ac8-e49cc42c-994e75be"
+# EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+# EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER = "postmaster@sandbox91ff9043bba645d3a94b33e4ecf941b0.mailgun.org"
+EMAIL_HOST_PASSWORD = "be446d60a9c69d1a9632bf9c44ed1ac8-e49cc42c-994e75be"
 EMAIL_USE_TLS = True
 
 
@@ -136,4 +148,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = 'static'
+
+STATICFILES_DIRS = [BASE_DIR / 'staticFiles']
