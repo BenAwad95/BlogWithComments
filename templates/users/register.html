@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Register</h2>
-
 <form method="post">
+    <h3>Register</h3>
     {% csrf_token %}
-    {{form}}
+    {{form.as_p}}
     <input type="submit" value="Register">
 </form>
 
-<a href="{% url 'users:login' %}">Back to login</a>
+<a class="inline-btn" href="{% url 'users:login' %}">Back to login</a>
 {% endblock %}

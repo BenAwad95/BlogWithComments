@@ -5,28 +5,31 @@
 
 {% block content %}
     <div class="post-box-detail">
-        <h2>{{object.title|title}}</h2>
-        <small class='post-date'>{{object.created_on|date:'M j Y'}}</small>
-        <br>
-        <small class='post-categories'>{{object.categories.all|join:"&nbsp;"}}</small>
-        <p>{{object.body}}</p>
+        <h2 class="title"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h2>
+            <p class="meta">On July 08, 2013
+                &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> </p>
+        <div class="entry"> 
+                <p>{{ object.body }}</p>
     </div>
+    <br>
+    <hr>
     <div class="comment-box">
-        <h3 class='comment-heading'>Commets</h3>
-        <form method="post">
+        <form method="post" id="comment-form">
+            <h4 class='comment-heading'>Tell Me What You Think</h4>
             {% csrf_token %}
-            {% comment %} <label for="name">Name</label>
-            <input type="text" name="name" id="author_comment">
-            <label for="body">Comment Body</label>
-            <textarea name="body" id="comment-body" cols="30" rows="10"></textarea> {% endcomment %}
-            {{ form }}
+            {{ form.as_p }}
             <input type="submit" value="Send">
         </form>
+        <h3 class='comment-heading'>Commets</h3>
         {% for comment in object.comment_set.all %}
-            <h5>{{comment.author}}</h5>
-            <small class='comment-date'>{{comment.created_on|date:'M j Y'}}</small>
-            <p class='comment-body' >{{comment.body}}</p>
-            <hr>
+            <div class="comment-container">
+                <div class="image-container"></div>
+               <div class="comment-content">
+                     <h5>{{comment.author}}</h5>
+                    <small class='comment-date'>{{comment.created_on|date:'M j Y'}}</small>
+                    <p class='comment-body' >{{comment.body}}</p>
+               </div>
+            </div>
         {% endfor %}
     </div>
 {% endblock content %}

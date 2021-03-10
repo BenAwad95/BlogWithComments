@@ -16,7 +16,7 @@
             <h1 id="logo"><a href="#">TodayBlog</a></h1>
             <nav id="main-nav">
                 <ul>
-                    <li><a class='btn-nav' href="{% url 'pages:home' %}">Home</a></li>
+                    <li><a class='btn-nav current-page' href="{% url 'pages:home' %}">Home</a></li>
                     <li><a class='btn-nav' href="{% url 'blogApp:post_list' %}">Blog</a></li>
                     {% if user.is_authenticated  %}
                         <li class='user-area'><a href="{% url 'users:dashboard' %}">Hi {{ user }}</a></li>

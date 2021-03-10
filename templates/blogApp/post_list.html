@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% block title %}
-    Posts List
+    Posts Listt
 {% endblock title %}
 
 {% block content %}
     <h2 class="heading-2" >Posts List</h2>
     {% for post in object_list %}
-        <div class="post-box">
-            <h3><a href="{{post.get_absolute_url}}">{{post.title|title}}</a></h3>
-            <small class='post-date'>Date: {{post.created_on|date:'M j Y'}}</small>
-            <br>
-            <small class='post-categories'>Tags: {{post.categories.all|join:"&nbsp;"}}</small>
-            <p>{{post.body|truncatechars:'400'}}</p>
-        </div>
-        <hr>
+        <div class="post">
+            <h2 class="title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+            <p class="meta">On July 08, 2013
+                &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> &nbsp;&bull;&nbsp; <a href="#" class="permalink">Full article</a></p>
+            <div class="entry"> 
+                <p>{{ post.body }}</p>
+            </div>
+		</div>
     {% endfor %}
 {% endblock content %}
