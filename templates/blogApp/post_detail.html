@@ -3,11 +3,16 @@
 {{object.title|title}}
 {% endblock title %}
 
+{% block nav_ops %}
+    <li><a class='btn-nav' href="{% url 'pages:home' %}">Home</a></li>
+    <li><a class='btn-nav current-page' href="{% url 'blogApp:post_list' %}">Blog</a></li>
+{% endblock nav_ops %}
+
 {% block content %}
     <div class="post-box-detail">
         <h2 class="title"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h2>
-            <p class="meta">On July 08, 2013
-                &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> </p>
+            <p class="meta">On {{ object.created_on |date}}
+                &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments ({{ object.comment_set.count  }})</a> </p>
         <div class="entry"> 
                 <p>{{ object.body }}</p>
     </div>
@@ -23,7 +28,7 @@
         <h3 class='comment-heading'>Commets</h3>
         {% for comment in object.comment_set.all %}
             <div class="comment-container">
-                <div class="image-container"></div>
+                <div class="image-container"><i class="fas fa-user"></i></div>
                <div class="comment-content">
                      <h5>{{comment.author}}</h5>
                     <small class='comment-date'>{{comment.created_on|date:'M j Y'}}</small>

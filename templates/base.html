@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog {% block title %}
     {% endblock title %}</title>
+    <script src="https://kit.fontawesome.com/c06101e090.js" crossorigin="anonymous"></script>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block style %}
@@ -16,8 +17,10 @@
             <h1 id="logo"><a href="#">TodayBlog</a></h1>
             <nav id="main-nav">
                 <ul>
+                    {% block nav_ops %}
                     <li><a class='btn-nav current-page' href="{% url 'pages:home' %}">Home</a></li>
                     <li><a class='btn-nav' href="{% url 'blogApp:post_list' %}">Blog</a></li>
+                    {% endblock nav_ops %}
                     {% if user.is_authenticated  %}
                         <li class='user-area'><a href="{% url 'users:dashboard' %}">Hi {{ user }}</a></li>
                     {% else %}

@@ -3,13 +3,18 @@
     Posts Listt
 {% endblock title %}
 
+{% block nav_ops %}
+    <li><a class='btn-nav' href="{% url 'pages:home' %}">Home</a></li>
+    <li><a class='btn-nav current-page' href="{% url 'blogApp:post_list' %}">Blog</a></li>
+{% endblock nav_ops %}
+
 {% block content %}
     <h2 class="heading-2" >Posts List</h2>
     {% for post in object_list %}
         <div class="post">
             <h2 class="title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-            <p class="meta">On July 08, 2013
-                &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> &nbsp;&bull;&nbsp; <a href="#" class="permalink">Full article</a></p>
+            <p class="meta">On {{ post.created_on |date}}
+                &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments ({{ post.comment_set.count }})</a> &nbsp;&bull;&nbsp; <a href="{{ post.get_absolute_url }}" class="permalink">Full article</a></p>
             <div class="entry"> 
                 <p>{{ post.body }}</p>
             </div>

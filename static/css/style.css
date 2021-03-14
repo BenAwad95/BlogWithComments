@@ -2,10 +2,53 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'cascadia code';
 }
 
 body{
+	background: #F0F0F0;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	color: #181B20;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 2.4em;
+}
+
+h2.title a{
+    color: #F44C31;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+
+p, ul, ol {
+	margin: 0;
+	line-height: 180%;
+}
+
+a {
+	text-decoration: none;
+	color: #C62647;
+}
+
+a.inline-btn{
+    padding: 1rem 0 0 0;
+    font-size: 1.2rem;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 .flex-center{
@@ -23,7 +66,7 @@ body{
 
 /* HEADER */
 #main-header{
-    background-color: #777;
+    background: #F44C31;
     padding: 1rem;
 }
 
@@ -36,8 +79,7 @@ body{
 
 #logo{
     text-transform: uppercase;
-    padding-right: 2rem;
-    
+    padding-right: 2rem; 
 }
 
 #logo a {
@@ -54,14 +96,15 @@ body{
 
 #main-nav ul li {
     display: inline-block;
-    padding: 0 0.25rem;
+    margin: 0;
 }
 
 #main-nav ul li a {
     text-decoration: none;
-    color: #ddd;
-    font-size: 1.3rem;
+    color: white;
+    font-size: 1.4rem;
     transition: color 0.3s ease-in-out;
+    padding: 0.5rem 0.5rem 1.5rem 0.5rem;
 }
 
 #main-nav ul li a.btn-sign{
@@ -70,6 +113,8 @@ body{
     border: none;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    color: hsl(8, 90%, 47%);
+    font-weight: 600;
 }
 
 #main-nav ul li a.btn-sign:hover{
@@ -77,15 +122,16 @@ body{
 }
 
 #main-nav ul li a.btn-sign.in{
-    background-color: hsl(0, 0%, 27%);
+    background-color: #F0F0F0;
 }
 
 #main-nav ul li a.btn-sign.up{
-    background-color: hsl(0, 0%, 37%);
+    background-color: #F0F0F0;
 }
 
-#main-nav ul li a:hover{
-    color: white;
+#main-nav ul li a.current-page{
+    color: #F44C31;
+    background: #F0F0F0;
 }
 /* END HEADER */
 
@@ -112,15 +158,18 @@ main{
 #greeting a {
     text-decoration: none;
     color: white;
-    background-color: #333;
+    background-color: #F44C31;
     border-radius:10px ;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem;
     margin-top: 1rem;
     transition: transform 0.2s ease-in-out;
+    font-size: 1.2rem;
+    border: 1px solid #F44C31;
 }
 
 #greeting a:hover{
-    transform: scale(1.1);
+    background: transparent;
+    color: #F44C31;
 }
 
 #main-footer{
@@ -133,32 +182,38 @@ main{
 /* posts list */
 
 h2.heading-2{
-    padding: 1rem 0;
+    margin: 50px 0;
+    padding: 1rem 2rem;
     font-size: 2rem;
     text-transform: uppercase;
     color: #333;
+    font-weight: 500;
+    font-size: 2.5rem;
+    border-bottom: 5px solid rgba(244, 76, 49, 0.5);
+    
 }
 
-.post-box{
+.post{
     padding: 1rem 0;
+    margin-bottom: 1rem;
 }
 
-.post-box h3 {
+.post h3 {
     padding-bottom: 0.5rem;
 }
 
-.post-box h3 a{
+.post h3 a{
     text-decoration: none;
     color: #444;
     font-size: 1.5rem;
 }
 
-.post-box h3 a:hover{
+.post h3 a:hover{
     text-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
     
 }
 
-.post-box small{
+.post small{
     padding-left: 0.5rem;
     color: #555;
     font-size: 0.7rem;
@@ -191,22 +246,58 @@ h2 {
 }
 
 h3.comment-heading{
-    font-size: 1.8rem;
-    padding: 0.5rem;
-    color: #444;
+    margin-top: 20px;
+    font-size: 2.5rem;
+    padding: 0.5rem 0;
+    color: #F44C31;
+    font-weight: 600;
 }
 
 form{
-    padding: 1rem;
-    background-color: #777;
-    color: #333;
+    margin-top: 100px;
+    background-color: rgb(180, 176, 176);
     width: 500px;
     margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+form#comment-form{
+    margin-top: 40px;
+    width: 100%;
+}
+
+form h3, form h4 {
+    text-align: center;
+    background: hsl(8, 90%, 57%);
+    padding: 1rem;
+    color: #F0F0F0;
+}
+
+form#comment-form h4{
+    font-size: 1.3rem;
+}
+
+form p {
+    padding: 0 1rem;
+    padding-top: 1rem;
+}
+
+form p span{
+    display: block;
+    color: #333;
+    padding-left: 2rem;
+}
+
+form ul.errorlist{
+    padding: 0 3rem;
+    color: hsl(0, 80%, 40%);
+    margin-bottom: -1rem;
+    margin-top: 1rem;
 }
 
 form label{
-    color: white;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     text-transform: capitalize;
     padding-bottom: 0.5rem;
     display: block;
@@ -220,18 +311,55 @@ form input, form textarea {
 
 form input[type='submit']{
     width: fit-content;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem;
     display: block;
     cursor: pointer;
-    margin: auto;
-    margin-top: 1rem;
-    font-size: 1.1rem;
+    margin: 1rem auto;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background: #F44C31;
+    color: #F0F0F0;
+    border: none;
 }
 
-h5 {
-    font-size: 1.5rem;
+.comment-box h5 {
+    font-size: 1.3rem;
     margin-top: 1rem;
     padding-bottom: 0.1rem;
+    
+}
+
+.comment-container{
+    padding: 1rem;
+    background: hsl(0, 0%, 84%);
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+}
+
+.comment-container .image-container{
+    margin-top: 25px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: hsl(0, 0%, 64%);
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container .fa-user{
+    font-size: 1.8rem;
+    color: hsl(0, 0%, 94%);
+}
+
+.comment-container .comment-content{
+    width: 90%;
 }
 
 .comment-date{
@@ -242,3 +370,16 @@ h5 {
     padding: 0.5rem;
 }
 
+/* DASHBOARD */
+
+#dashboard{
+    margin-top: 20%;
+}
+
+#dashboard h2{
+    font-size: 2.5rem;
+}
+
+#dashboard p {
+    text-align: center;
+}
